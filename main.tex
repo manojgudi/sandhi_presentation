@@ -22,8 +22,8 @@
 % Slide 1
 \title[Sandhi]{Sandhi}
 \author{Manoj Gudi}
-\institute{R.A. FOSSEE | NME-ICT | IIT Bombay}
-\date{7th March 2014}
+\institute{Ex-R.A. FOSSEE | CTO | FocusAnalytics}
+\date{3rd December 2014}
 
 \begin{document}
 \begin{frame}
@@ -44,16 +44,16 @@
 \begin{itemize}
   \item LabVIEW: A proprietary visual programming software by NI
   \item Vendor lockdown 
-  \item Buy NI DAC cards .. Buy LabVIEW  = \textbf{ \textit{Evil Maxx}}
+  \item Buy NI DAC cards .. Buy LabVIEW  = \textbf{ \textit{Expensive Maxx}}
   \item Little care for support on Free Operating Systems: GNU/Linux.
-  \item Main target: Virtual Labs, IIT Bombay.
+  \item Initial target: Virtual Labs, IIT Bombay.
 \end{itemize}
 \vskip 1cm
 \end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Slide 3
-\section{Sandhi Begins}
+\section{Virtual labs meme}
 \vskip 1cm
 \begin{frame}{}
 \subsection{section}
@@ -65,7 +65,7 @@
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Slide4
-\section{The Dark Sandhi}
+\section{Sandhi basic features}
 \begin{frame}{Objectives}
 \begin{figure} [ht!]
 	\centering
@@ -84,7 +84,7 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 % Slide 5
-\section{Main Content}
+\section{Sandhi Architecture image}
 \begin{frame}{Architecture}
 
 \begin{figure} [ht!]
@@ -96,6 +96,7 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 % Slide 6
+\section{Sandhi Basic Features}
 \begin{frame}{Features}
 
 \begin{itemize}
@@ -105,16 +106,79 @@
   \item Developed for Control system application
   \item But can be easily extended for
   \begin{itemize}
-  	\item Image Processing
-	\item Neural Networks
+  	\item Image Processing*
+	\item Neural Networks*
 	\item And any other areas which can be represented as data-flowgraph
   \end{itemize}
 \end{itemize}
 \vskip 1cm
 \end{frame}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 % Slide 7
+\begin{frame}{Sandhi \textless3 Scilab}
+
+\begin{itemize}
+  \item Sciscipy wrapper - Sylvestre Ledru and Vincent Guffens
+  \item Sample code
+  \begin{itemize}\item \textit{from scilab import Scilab 
+                \\  sci = Scilab()
+                \\  x = sci.rand(20, 20)
+                \\  y = x*x.transpose()
+                \\  y\_inv = sci.inv(y)}
+  \end{itemize}
+  \item RIP: Linker Bug [2011-13]
+  \item Fixed for Scilab 5.4+  YEAH!
+  \item Use pure* functions of Scilab directly
+  \item Provides way to evaluate code-string too.
+\end{itemize}
+\vskip 1cm
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% Slide 8
+\section{Current Development I}
+\begin{frame}{Current Approach:Functional Approach}
+
+\begin{itemize}
+  \item Referential Transparency (Pure and Impure Functions)
+  \item Using GNU Radio's rudimentary type checker
+  \item Function composition = \textit{complex becomes simple}
+  \item Few impure functions are inherited from GNU Radio
+  \item if \textit{(software == reliable)} then \textit{blame(hardware\_guys)}
+\end{itemize}
+\vskip 1cm
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Slide 9
+\section{Current Development II}
+\begin{frame}{Exciting features in pipeline}
+
+\begin{itemize}
+  \item HaPy Wrapper (David Fischer)integrated and tested (for Pure functions)
+  \begin{itemize}
+    \item Terse and elegant code
+    \item Compiled and faster
+    \item Immutable objects means easily \textit{parallelizable}
+  \end{itemize}
+  \item Shifting to cloud based architecture(using RPC)
+  \begin{itemize}
+    \item A client side containing smaller GRC, runtime environment
+    \item Server side containing heaviy libraries
+    \item Prototyped using RabbitMQ's RPC service(AQMP)
+    \item Should work well for heavy simulations (if not realtime app)
+  \end{itemize}
+  \item Functional block generator
+\end{itemize}
+\vskip 1cm
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Slide 10
 \begin{frame}{References/Links}
 
 \begin{itemize}
@@ -123,7 +187,7 @@
   \item Problems using it? Found a bug?
   \begin{itemize}
  	\item Are you sure its a bug and \textbf{not} \textit{a feature}?
-	\item Raise a issue on our github
+	\item Raise an issue on our github
 	\item Mailing List: \textit{gnu\_lc@googlegroups.com}
   \end{itemize}
 \end{itemize}
